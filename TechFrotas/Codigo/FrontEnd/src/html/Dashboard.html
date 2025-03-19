@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  
+  <link rel="stylesheet" href="/Codigo/FrontEnd/src/css/styles.css">
+  <link rel="stylesheet" href="/Codigo/FrontEnd/src/css/help.css">
+  <link rel="stylesheet" href="/Codigo/FrontEnd/src/css/dashboard.css">
+
+  <link rel="icon" href="../images/logos/desenhooff.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Barra lateral -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+        <ul>
+          <li><a href="Dashboard.html"><i class="fa fa-home"></i><span>Início</span></a></li>
+          <li><a href="Caminhao.html"><i class="fa fa-truck"></i><span>Caminhões</span></a></li>
+          <li><a href="Funcionario.html"><i class="fa fa-users"></i><span>Funcionários</span></a></li>
+          <li><a href="abastecimento.html"><i class="fa fa-gas-pump"></i><span>Abastecimentos</span></a></li>
+          <li><a href="Viagem.html"><i class="fa fa-plane"></i><span>Viagens</span></a></li>
+          <li><a href="pedagio.html"><i class="fa fa-dollar-sign"></i><span>Pedágios</span></a></li>
+          <li><a href="Gastos.html"><i class="fa fa-chart-bar"></i><span>Gastos</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+
+      <div class="user-info">
+        <i class="fas fa-user"></i>
+        <div>
+          <strong>Transbeluc</strong><br>
+          <span>Administrador</span>
+        </div>
+      </div>
+
+      <div class="header">
+        <div>
+          <h2>Dashboard</h2><br>
+        </div>
+      </div>
+
+      <div class="navbar-left">
+        <div class="navbar-right">
+          <!-- Container para os ícones de lua e sol -->
+          <i class="fa fa-moon moon-icon"></i>
+
+          <!-- Switch para alternar entre tema claro e escuro -->
+          <label class="theme-switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="slider"></span>
+          </label>
+
+          <!-- Ícone de Sol à direita -->
+          <i class="fa fa-sun sun-icon"></i>
+        </div>
+
+        <!-- Botão de Sair -->
+        <div>
+          <a class="logout-btn" href="login.html">
+            <i class="fa fa-sign-out"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="dashboard-container">
+        <!-- Cards -->
+        <div class="cards-grid">
+          <div class="card">
+           <a href="Caminhao.html"><i class="bi bi-truck card-icon"></i></a>
+            <div class="card-title">Caminhões</div>
+          </div>
+          <div class="card">
+            <a href="Funcionario.html"><i class="bi bi-person card-icon"></i></a>
+            <div class="card-title">Funcionários</div>
+          </div>
+          <div class="card">
+            <a href="abastecimento.html"><i class="bi bi-fuel-pump card-icon"></i></a>
+            <div class="card-title">Abastecimentos</div>
+          </div>
+          <div class="card">
+            <a href="Viagem.html"><i class="bi bi-airplane card-icon"></i></a>
+            <div class="card-title">Viagens</div>
+          </div>
+          <div class="card">
+            <a href="pedagio.html"><i class="bi bi-cash-coin card-icon"></i></a>
+            <div class="card-title">Pedágio</div>
+          </div>
+          <div class="card">
+            <a href="Gastos.html"><i class="bi bi-bar-chart-line card-icon"></i></a>
+            <div class="card-title">Gastos</div>
+          </div>
+        </div>
+
+        <!-- Gráficos -->
+<div class="graficos-container">
+  <!-- Coluna com Total de Viagens e Ganhos -->
+  <div class="graficos-coluna">
+    <div class="card grafico" id="grafico-total-viagens">
+      <h3>Total de Viagens Feitas</h3>
+      <canvas id="tripsChart" class="chart cent"></canvas>
+    </div>
+    <div class="card grafico" id="grafico-ganhos">
+      <h3>Gráfico de Ganhos</h3>
+      <canvas id="incomeChart" class="chart cent"></canvas>
+    </div>
+  </div>
+
+  <!-- Gráfico de Gastos -->
+  <div class="card grafico" id="grafico-gastos">
+    <h3>Gráfico de Gastos</h3>
+    <canvas id="expensesChart" class="chart"></canvas>
+  </div>
+</div>
+
+
+
+      
+
+    </div> 
+
+
+  <!-- Botão de ajuda -->
+  <button class="help-button" id="helpButton">?</button>
+
+  <!-- Modal -->
+<div class="modal" id="helpModal">
+  <div class="modal-header">
+    <span>Tire suas dúvidas</span>
+    <button class="close-button" id="closeButton">&times;</button>
+  </div>
+  <div class="title-line"></div>
+  <div class="header-line"></div>
+  <div class="modal-body">
+    <button class="question-button" onclick="showResponse('caminhao')">Não consigo excluir um caminhão</button>
+    <button class="question-button" onclick="showResponse('abastecimento')">Como cadastro o abastecimento?</button>
+    <button class="question-button" onclick="showResponse('notificacao')">Onde vejo a notificação de manutenção?</button>
+    <button class="question-button" onclick="showResponse('km')">Editar km do caminhão não funciona</button>
+    <button class="question-button" onclick="showResponse('relatorio')">Como gero relatórios?</button>
+  </div>
+  <div class="response" id="response"></div>
+  <div class="modal-footer"></div>
+  <button class="video-button" onclick="openVideo()">Vídeo completo</button>
+</div>
+
+
+  <!-- Modal de Notificações -->
+  <div id="modalNotificacoes" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalNotificacoes">&times;</span>
+      <h2>Notificações</h2>
+      <div class="title-line"></div>
+      <div class="notificacao-edit">
+        <div id="notificacoes-container">
+          <!-- As notificações serão carregadas aqui -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="/Codigo/FrontEnd/src/script/canvas.js"></script>
+      <script src="../script/notificacoes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/Codigo/FrontEnd/src/script/dashboard.js"></script>
+  <script src="/Codigo/FrontEnd/src/script/help.js"></script>
+</body>
+
+
+
+
+</html>

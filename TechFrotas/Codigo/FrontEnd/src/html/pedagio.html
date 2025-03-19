@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Pedágios - TechFrotas</title>
+  
+  <link rel="stylesheet" href="/Codigo/FrontEnd/src/css/styles.css">
+  <link rel="icon" href="../images/logos/desenhooff.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Barra lateral -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+        <ul>
+          <li><a href="Dashboard.html"><i class="fa fa-home"></i><span>Início</span></a></li>
+          <li><a href="Caminhao.html"><i class="fa fa-truck"></i><span>Caminhões</span></a></li>
+          <li><a href="Funcionario.html"><i class="fa fa-users"></i><span>Funcionários</span></a></li>
+          <li><a href="abastecimento.html"><i class="fa fa-gas-pump"></i><span>Abastecimentos</span></a></li>
+          <li><a href="Viagem.html"><i class="fa fa-plane"></i><span>Viagens</span></a></li>
+          <li><a href="pedagio.html"><i class="fa fa-dollar-sign"></i><span>Pedágios</span></a></li>
+          <li><a href="Gastos.html"><i class="fa fa-chart-bar"></i><span>Gastos</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Conteúdo principal -->
+    <div class="content">
+      <div class="user-info">
+        <i class="fas fa-user"></i>
+        <div>
+          <strong>Transbeluc</strong><br>
+          <span>Administrador</span>
+        </div>
+      </div>
+
+      <div class="navbar-left">
+        <div class="navbar-right">
+          <!-- Container para os ícones de lua e sol -->
+          <i class="fa fa-moon moon-icon"></i>
+
+          <!-- Switch para alternar entre tema claro e escuro -->
+          <label class="theme-switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="slider"></span>
+          </label>
+
+          <!-- Ícone de Sol à direita -->
+          <i class="fa fa-sun sun-icon"></i>
+        </div>
+
+        <!-- Botão de Sair -->
+        <div>
+          <button class="logout-btn">
+            <i id="btnAbrirModalNotificacoes" class="fa fa-bell"></i>
+            <i class="fa fa-sign-out"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Cabeçalho -->
+      <div class="header">
+        <div>
+          <h2>Pedágios</h2><br>
+        </div>
+        <div class="buttons">
+          <button id="btnAbrirModalPedagio">Adicionar Pedágio</button>
+          <button id="btnGerarRelatorioPedagio">Gerar Relatório</button>
+        </div>
+      </div>
+
+      <table id="tabelaPedagios">
+        <div class="titulo-tabela">
+          <h3>Pedágios Pagos:</h3>
+        </div>
+        <thead>
+          <tr id="nop">
+            <th>Placa</th>
+            <th>Local</th>
+            <th>Valor</th>
+            <th>Data</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+     <!-- Modal adicionar pedágio -->
+<div id="modalAddPedagio" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalPedagio">&times;</span>
+      <h2>Adicionar Pedágio</h2>
+      <div class="title-line"></div>
+      <form id="formAddPedagio">
+        <div class="form-group">
+          <label for="placaPedagio">Placa:</label>
+          <input type="text" id="placaPedagio" name="placaPedagio" placeholder="XXX-XXXX" required>
+        </div>
+        <div class="form-group">
+          <label for="localPedagio">Local:</label>
+          <input type="text" id="localPedagio" name="localPedagio" required>
+        </div>
+        <div class="form-group">
+          <label for="valorPedagio">Valor:</label>
+          <input type="number" id="valorPedagio" name="valorPedagio" min="00.00" step="0.01" placeholder="0,0" required>
+        </div>
+        <div class="form-group">
+          <label for="dataPedagio">Data:</label>
+          <input type="date" id="dataPedagio" name="dataPedagio" required>
+        </div>
+        <button type="submit" class="btn-primary">Adicionar Pedágio</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal editar pedágio -->
+<div id="modalEditPedagio" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModalEditPedagio">&times;</span>
+    <h2>Editar Pedágio</h2>
+    <div class="title-line"></div>
+    <form id="formEditPedagio">
+      <input type="hidden" id="editarIdPedagio">
+      <div class="form-group">
+        <label for="editarPlacaPedagio">Placa:</label>
+        <input type="text" id="editarPlacaPedagio" name="editarPlacaPedagio" required>
+      </div>
+      <div class="form-group">
+        <label for="editarLocalPedagio">Local:</label>
+        <input type="text" id="editarLocalPedagio" name="editarLocalPedagio" required>
+      </div>
+      <div class="form-group">
+        <label for="editarValorPedagio">Valor:</label>
+        <input type="number" id="editarValorPedagio" name="editarValorPedagio" min="00.00" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="editarDataPedagio">Data:</label>
+        <input type="date" id="editarDataPedagio" name="editarDataPedagio" required>
+      </div>
+      <button type="submit" class="btn-primary">Salvar Alterações</button>
+    </form>
+  </div>
+</div>
+
+ <!-- Modal de Notificações -->
+ <div id="modalNotificacoes" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModalNotificacoes">&times;</span>
+    <h2>Notificações</h2>
+    <div class="title-line"></div>
+    <div class="notificacao-edit">
+      <div id="notificacoes-container">
+        <!-- As notificações serão carregadas aqui -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('closeModalEditPedagio').addEventListener('click', () => {
+    fecharModal('modalEditPedagio');
+  });
+</script>
+
+
+<script src="/Codigo/FrontEnd/src/script/canvas.js"></script>
+<script src="../script/notificacoes.js"></script>
+      <script src="/Codigo/FrontEnd/src/script/pedagio.js"></script>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+      <!-- <script src="scripts.js"></script> -->
+
+</body>
+
+</html>

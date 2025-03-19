@@ -1,0 +1,127 @@
+/* Botão de ajuda flutuante */
+.help-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(10deg, #62b4ff, #1c6ea4, #62b4ff);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 75%;
+  background: #f3f3f3;
+  width: 320px;
+  height: 70%;
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.modal.open {
+  display: flex;
+}
+
+/* Cabeçalho do Modal */
+.modal-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Linha abaixo do título */
+.header-line {
+  height: 4px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+/* Botão de fechar */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: red;
+}
+
+/* Corpo do Modal */
+.modal-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+/* Remover barra de rolagem */
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Botão de pergunta */
+.question-button {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.question-button:hover {
+  background-color: #e9f5ff;
+}
+
+/* Botão de vídeo com animação */
+.video-button {
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  border: none;
+  padding: 15px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.5s;
+}
+
+.video-button:hover {
+  background: linear-gradient(45deg, #00c6ff, #007bff);
+}
+
+/* Resposta */
+.response {
+  margin-top: 45px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  color: #555;
+}

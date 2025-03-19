@@ -1,0 +1,29 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: Tech Frotas
+authors:
+  - family-names: Érico dos Santos
+    given-names: Davi
+  - family-names: Maia da Costa
+    given-names: João Gabriel
+  - family-names: Caldas Pacheco
+    given-names: Leandro
+  - family-names: Alves Resende
+    given-names: Lucas
+  - family-names: Maia Rocha
+    given-names: Lucas
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Alonso Veloso
+    given-names: Eveline
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Amaral Baroni de Carvalho
+    given-names: Juliana
+keywords:
+  - Gestão de frotas
+  - Controle de gastos
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2024-2-ti3-9545100-tech-frotas
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2024-12-09

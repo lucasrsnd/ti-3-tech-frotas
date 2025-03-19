@@ -1,0 +1,166 @@
+/* Estilos Gerais */
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background: url('/Codigo/FrontEnd/src/images/background-login.webp') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(8px); 
+    z-index: -1;
+  }
+  
+  /* Container Principal */
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.95); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .sidebar {
+    background-color: #333;
+    width: 80px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar ul li {
+    color: white;
+    font-size: 24px;
+    margin: 20px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .sidebar ul li.active {
+    color: #007BFF;
+  }
+  
+  /* Formulário */
+  .form-container {
+    padding: 40px;
+    width: 100%;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; 
+  }
+
+
+.botao-login{
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 16px;
+  width: 300px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  input:invalid {
+    border-color: gray
+  }
+  
+  input:valid {
+    border-color: green;
+  }
+
+  /* Estilo para a frase de redirecionamento */
+.signup-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .signup-text a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .signup-text a:hover {
+    text-decoration: underline;
+  }
+
+  /* botão home */
+.home-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 10px;
+    border-radius: 50%;
+  }
+  
+  .home-icon i {
+    color: white;
+  }
+  
+  .home-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8); 
+    transition: background-color 0.3s ease-in-out;
+  }

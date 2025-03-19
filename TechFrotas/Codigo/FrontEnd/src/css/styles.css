@@ -1,0 +1,852 @@
+/* Variáveis Globais */
+:root {
+  --primary-color: #1c76d2;
+  --primary-hover: #155a9a;
+  --secondary-color: #4CAF50;
+  --background-color: #f4f4f4;
+  --sidebar-bg: #1e293b;
+  --text-color: #333;
+  --white-color: #fff;
+  --modal-bg: rgba(0, 0, 0, 0.6);
+  --border-radius: 8px;
+  --transition: 0.3s;
+
+  /* Tema Escuro */
+  --dark-background-color: #212121;
+  --dark-sidebar-bg: #6d9fe1;
+  --dark-text-color: #e0e0e0;
+  --dark-primary-color: #42a5f5;
+  --dark-primary-hover: #1e88e5;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+  background-color: var(--dark-background-color);
+  color: var(--dark-text-color);
+}
+
+/* Tema escuro para o cabeçalho da tabela (th) */
+body.dark-theme table th {
+  background-color: #191919;
+  /* Cor de fundo preta */
+  color: var(--white-color);
+  /* Cor do texto branca */
+}
+
+body.dark-theme .btn-excluir {
+  color: var(--dark-text-color);
+
+}
+
+/* Tema escuro para o .header */
+body.dark-theme .header {
+  background-color: #494949;
+  /* Cor de fundo preta */
+}
+
+body.dark-theme .fas {
+  color: var(--dark-text-color);
+}
+
+body.dark-theme .modal-content {
+  background: var(--dark-background-color);
+  color: var(--white-color);
+}
+
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(to right, #25516e, #4282c6);
+  transition: background 0.3s ease;
+}
+
+/* Tema Escuro para Sidebar */
+body.dark-theme .sidebar {
+  background: linear-gradient(to right, var(--dark-sidebar-bg), #4282c6);
+}
+
+body.dark-theme .fa-user {
+  color: var(--background-color);
+}
+
+/* Tabela */
+table {
+  background-color: var(--white-color);
+}
+
+body.dark-theme table {
+  background-color: #333;
+  color: var(--dark-text-color);
+}
+
+/* Estilos para o modo escuro */
+body.dark-theme table {
+  background-color: #333;
+  /* Cor de fundo escura */
+  box-shadow: -1px 1px 22px 5px rgba(0, 0, 0, 0.5);
+  /* Sombra mais suave para o modo escuro */
+}
+
+/* Cabeçalho com gradiente */
+thead {
+  background: linear-gradient(to right, #488fbf, #2e5987);
+  color: var(--white-color);
+}
+
+/* Estilos para o modo escuro no cabeçalho */
+body.dark-theme thead {
+  background: linear-gradient(to right, #2a4b61, #1f3650);
+  /* Gradiente escuro para o cabeçalho */
+}
+
+/* Título da tabela */
+.titulo-tabela {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* Estilo comum para as células */
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  border-top: 1px solid #ddd;
+}
+
+/* Linha com fundo branco (índices ímpares) */
+table tr:nth-child(odd) {
+  background-color: white;
+}
+
+/* Linha com fundo cinza clarinho (índices pares) */
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+  /* Cinza clarinho */
+}
+
+/* Estilos para o modo escuro nas linhas */
+body.dark-theme table tr:nth-child(odd) {
+  background-color: #444;
+  /* Cor de fundo escura para linhas ímpares */
+}
+
+body.dark-theme table tr:nth-child(even) {
+  background-color: #555;
+  /* Cor de fundo mais escura para linhas pares */
+}
+
+body.dark-theme .notificacao-item {
+  background-color: var(--text-color);
+
+}
+
+/* Cor do cabeçalho */
+table th {
+  color: var(--white-color);
+  text-align: left;
+}
+
+/* Estilos para o modo escuro no cabeçalho */
+body.dark-theme table th {
+  color: #ddd;
+  /* Cor de texto mais suave no modo escuro */
+}
+
+#nop {
+  background: linear-gradient(to right, #488fbf, #2e5987);
+}
+
+/* Efeito de hover */
+tr:hover {
+  background-color: #ddd;
+}
+
+/* Estilos para o modo escuro no hover */
+body.dark-theme tr:hover {
+  background-color: #666;
+  /* Efeito de hover mais escuro */
+}
+
+/* Navbar */
+.navbar-left {
+  background: linear-gradient(to right, #488fbf, #2e5987);
+  color: white;
+}
+
+body.dark-theme .header {
+  background-color: #222;
+  /* Cor de fundo escura */
+  box-shadow: -1px 1px 22px 5px rgba(0, 0, 0, 0.5);
+  /* Sombra mais escura e suave */
+}
+
+/* Quando em tema escuro */
+body.dark-theme .navbar-left {
+  background: linear-gradient(to right, var(--dark-sidebar-bg), var(--dark-primary-color));
+}
+
+/* Ajuste para o botão de alternância */
+.theme-switch input:checked+.slider {
+  background-color: var(--dark-text-color);
+}
+
+.theme-switch input:checked+.slider:before {
+  background-color: var(--white-color);
+}
+
+/* Ajuste para o ícone de sol e lua */
+.theme-switch input:checked+.slider+.sun-icon {
+  opacity: 1;
+}
+
+.theme-switch input:checked+.slider+.moon-icon {
+  opacity: 0;
+}
+
+body.dark-theme .moon-icon {
+  opacity: 0;
+}
+
+body.dark-theme .sun-icon {
+  opacity: 1;
+}
+
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--white-color);
+}
+
+a:hover {
+  color: #d0ebf8;
+}
+
+hr {
+  color: rgb(236, 234, 234);
+  margin-bottom: 20px;
+}
+
+
+/* Container Principal */
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Estilo da sidebar */
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  background: linear-gradient(to right, #25516e, #4282c6);
+  color: var(--white-color);
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.3s, min-width 0.3s, max-width 0.3s;
+  padding: 20px;
+}
+
+
+.sidebar.collapsed {
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+}
+
+/* Ajuste para o conteúdo principal */
+.content {
+  flex-grow: 1;
+  padding: 30px;
+  transition: margin-left 0.3s;
+}
+
+/* Quando a sidebar está recuada */
+.container .sidebar.collapsed+.content {
+  margin-left: 80px;
+}
+
+/* Título e texto da sidebar */
+.sidebar h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--white-color);
+  transition: opacity 0.3s;
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar span {
+  margin-left: 20px;
+}
+
+.sidebar ul li {
+  margin: 20px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li i {
+  width: 30px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+
+.sidebar span:hover {
+  color: #b6dcff;
+}
+
+.sidebar ul li span {
+  display: inline-block;
+  transition: opacity 0.3s;
+}
+
+/* Ajuste para o item "Sair" não desaparecer */
+.sidebar.collapsed h2,
+.sidebar.collapsed ul li span,
+.sidebar.collapsed .sidebar-bottom ul li {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.collapsed ul li i {
+  transform: scale(1.0);
+}
+
+/* Ajuste para garantir que "Sair" sempre apareça */
+.sidebar-bottom ul li {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Botão de colapsar */
+.toggle-btn {
+  background: none;
+  border: none;
+  color: var(--white-color);
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+/* Estilo para a parte da navbar */
+.navbar-left {
+  position: absolute;
+  width: 50%;
+  /* Ocupa 50% da largura */
+  padding: 10px;
+  background: linear-gradient(to right, #488fbf, #2e5987);
+  color: white;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  top: 0;
+  left: 50%;
+  border-bottom-left-radius: 20px;
+}
+
+.logout-btn i {
+  color: var(--white-color);
+  font-size: large;
+  margin-right: 18px;
+  /* Espaçamento entre o ícone e o texto */
+  margin-left: 10px;
+}
+
+
+/* Estilizando o seletor de tema */
+
+/* Container para o switch e ícones */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 40px;
+  /* Espaço para o ícone de sol */
+}
+
+/* Estilização do switch */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+/* Esconde o checkbox real */
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* A aparência do slider (o botão deslizante do switch) */
+.theme-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+/* Quando o switch está ativado (checkbox marcado) */
+.theme-switch input:checked+.slider {
+  background-color: var(--text-color);
+}
+
+/* O círculo dentro do slider */
+.theme-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  border-radius: 50px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* Quando o switch está ativado (o círculo vai para a direita) */
+.theme-switch input:checked+.slider:before {
+  transform: translateX(25px);
+}
+
+/* Estilizando os ícones de sol e lua */
+.sun-icon,
+.moon-icon {
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Posicionando o ícone de lua à esquerda */
+.moon-icon {
+  left: -30px;
+  opacity: 1;
+}
+
+/* Posicionando o ícone de sol à direita */
+.sun-icon {
+  right: 10px;
+}
+
+/* Quando o switch está ativado (aparece o ícone de lua) */
+.theme-switch input:checked+.slider+.sun-icon {
+  opacity: 1;
+}
+
+.theme-switch input:checked+.slider+.moon-icon {
+  opacity: 0;
+}
+
+
+
+.user-info {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 1.5%;
+  left: 19%;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+
+/* Conteúdo Principal */
+.content {
+  flex: 100;
+  padding: 20px;
+  transition: margin-left var(--transition);
+  margin-top: 75px;
+}
+
+.content.collapsed {
+  margin-left: 80px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white-color);
+  box-shadow: -1px 1px 22px 5px rgb(210, 208, 208);
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+}
+
+.header h2 {
+  margin-left: 15px;
+  margin-top: 17px;
+}
+
+.header .buttons button {
+  background-color: var(--sidebar-bg);
+  color: var(--white-color);
+  border: none;
+  padding: 10px 20px;
+  margin-right: 15px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.header .buttons button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: var(--white-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 1px 22px 5px rgb(210, 208, 208);
+  border-radius: 10px;
+  overflow: hidden;
+  /* Garante que o conteúdo arredondado da tabela seja visível */
+}
+
+/* Cabeçalho com gradiente */
+thead {
+  background: linear-gradient(to right, #488fbf, #2e5987);
+  color: var(--white-color);
+}
+
+/* Título da tabela */
+.titulo-tabela {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* Estilo comum para as células */
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  border-top: 1px solid #ddd;
+}
+
+/* Linha com fundo branco (índices ímpares) */
+table tr:nth-child(odd) {
+  background-color: white;
+}
+
+/* Linha com fundo cinza clarinho (índices pares) */
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+  /* Cinza clarinho */
+}
+
+/* Cor do cabeçalho */
+table th {
+  color: var(--white-color);
+  text-align: left;
+}
+
+#nop {
+  background: linear-gradient(to right, #488fbf, #2e5987);
+}
+
+/* Efeito de hover */
+tr:hover {
+  background-color: #ddd;
+}
+
+/*Estilos dos icons*/
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.fas {
+  margin-left: 15px;
+  font-size: large;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.fa-edit:hover {
+  color: #2980b9;
+}
+
+.fa-trash-alt:hover {
+  color: #c0392b;
+}
+
+
+/* Modal */
+/* Modal oculto por padrão */
+.modal {
+  display: none;
+  /* O modal está escondido até ser ativado */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fundo escuro translúcido */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Quando ativo, o modal será exibido */
+.modal.active {
+  display: flex;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  width: 600px;
+  padding: 20px 30px;
+  position: relative;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease-out;
+  margin-top: 40px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Botão de fechar */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.close:hover {
+  color: --text-color;
+}
+
+/* Título */
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: --text-color;
+}
+
+/* Linha animada abaixo do título */
+.title-line {
+  height: 2px;
+  background: linear-gradient(90deg, #62b4ff, #1c6ea4, #62b4ff);
+  background-size: 200% 100%;
+  margin: 10px auto 20px;
+  width: 80%;
+  animation: gradientMove 3s infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Formulário */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 48%;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #62b4ff;
+  background-color: #f0f0f0;
+  outline: none;
+}
+
+/* Botão */
+.btn-primary {
+  display: block;
+  margin-left: auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--sidebar-bg);
+  color: #fff;
+  border: none;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+
+
+/* Container para a barra de navegação */
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Alinhar a navbar-left à esquerda */
+.navbar-left {
+  margin-right: auto;
+  /* Para garantir que os itens à direita fiquem no extremo direito */
+}
+
+/* Alinhar a navbar-right à direita */
+.navbar-right {
+  margin-left: auto;
+}
+
+/* Estilizando o botão de Sair */
+.logout-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: --text-color;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+
+/*Notificação*/
+
+/* Estilo para as notificações */
+#notificacoes-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.notificacao-item {
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.notificacao-item i {
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.notificacao-item span {
+  font-size: 16px;
+}
+
+.btn-excluir {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-excluir:hover {
+  color: #c0392b;
+}
+
+.btn-excluir i {
+  margin-left: 10px;
+}
+
+.fa-user {
+  font-size: 40px;
+  margin-right: 20px;
+  color: var(--text-color);
+}
