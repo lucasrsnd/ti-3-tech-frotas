@@ -2,19 +2,6 @@
 
 O projeto TechFrotas tem como objetivo desenvolver um sistema para otimizar a gestão de frotas dos caminhões da empresa, proporcionando um maior controle sobre todos os seus serviços, como abastecimentos, gastos, faturamento, salários, pagamentos, entre outros. O novo sistema permitirá o registro e armazenamento automatizado de todos os dados que a empresa atualmente gerencia manualmente, facilitando a geração de relatórios e melhorando a organização das informações para a administração. Além de estarem sempre salvos no sistema ou no banco de dados.
 
-## Alunos integrantes da equipe
-
-* [Davi Érico dos Santos]
-* [João Gabriel Maia da Costa]
-* [Leandro Caldas Pacheco]
-* [Lucas Alves Resende]
-* [Lucas Maia Rocha]
-
-## Professores responsáveis
-
-* [Eveline Alonso Veloso]
-* [Juliana Amaral Baroni de Carvalho]
-
 ## Instruções de utilização
 
 * Pré-requisitos para utilizar o software
